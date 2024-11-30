@@ -1,0 +1,53 @@
+<section data-bs-version="5.1" class="header02 nutritionm5" group="Headers" data-bg-video="{{bg.type == 'video' && bg.value.url}}" mbr-class="{
+    'mbr-fullscreen': fullScreen,
+    'mbr-parallax-background': bg.parallax}">
+    <mbr-parameters>
+        <header>Size</header>
+        <input type="checkbox" title="Full Screen" name="fullScreen">
+        <input type="checkbox" title="Full Width" name="fullWidth" checked>
+        <input type="range" inline title="Top" name="paddingTop" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <input type="range" inline title="Bottom" name="paddingBottom" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <header>Show/Hide</header>
+        <input type="checkbox" title="Logo" name="showLogo" checked>
+        <input type="checkbox" title="Title" name="showTitle" checked>
+        <input type="checkbox" title="Text" name="showText" checked>
+        <input type="checkbox" title="Buttons" name="showButtons" checked>
+        <input type="checkbox" title="Border" name="showBorder" checked>
+        <input type="color" title="Border Color" value="#000000" name="border" condition="showBorder" selected>
+        <input type="color" title="Container BG" value="#E6F9F5" name="container" selected>
+        <header>Background</header>
+        <fieldset type="background" name="bg" parallax>
+            <input type="image" title="Image" value="https://r.mobirisesite.com/956578/assets/images/photo-1518707332890-e05af3c6bfff.jpeg" parallax selected>
+            <input type="color" title="Color" value="#00C49A">
+            <input type="video" title="Video" value="https://vimeo.com/428046504">
+        </fieldset>
+        <header condition="bg.type === 'video'">Fallback Image</header>
+        <input type="image" title="Fallback Image" value="../_images/background6.jpg" name="fallBackImage" condition="bg.type === 'video'">
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked value="#00C49A">
+        <input type="color" title="Overlay Color" name="overlayColor" value="#00C49A" condition="overlay && bg.type !== 'color'">
+        <input type="range" inline title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.7" condition="overlay && bg.type !== 'color'">
+    </mbr-parameters>
+
+    <div class="mbr-fallback-image disabled" mbr-if="bg.type == 'video'"></div>
+    <div class="mbr-overlay" mbr-if="overlay && bg.type !== 'color'" opacity="{{overlayOpacity}}" bg-color="{{overlayColor}}"></div>
+
+    <div mbr-class="{'container': !fullWidth, 'container-fluid': fullWidth}">
+        <div class="row content-wrap">
+            <div class="col-12 col-lg-8">
+                <div class="card-wrapper">
+                    <div class="logo-wrapper" mbr-if="showLogo">
+                        <img src="https://r.mobirisesite.com/956578/assets/images/photo-1578593139862-d9b9d9693d57.jpeg" alt="Mobirise">
+                    </div>
+                    <h2 class="mbr-section-title mbr-fonts-style" data-app-selector=".mbr-section-title, .mbr-section-btn, .logo-wrapper" mbr-theme-style="display-1" mbr-if="showTitle">Your Study Buddy</h2>
+					<div class="text-wrapper">
+						<p class="mbr-text mbr-fonts-style" mbr-theme-style="display-4" mbr-if="showText" data-app-selector=".mbr-text, .text-wrapper">Welcome to StudHub, where textbooks meet tech and procrastination meets productivity! Dive into a world where studying is less of a chore and more of an adventure. Let’s turn those late-night cramming sessions into epic learning marathons!</p>
+					</div>
+                    <div mbr-buttons="" mbr-theme-style="display-4" class="mbr-section-btn" mbr-if="showButtons" data-toolbar="-mbrBtnMove">
+                        <a class="btn btn-primary" href="https://mobiri.se" data-app-placeholder="Type Text">Join Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-wrap" mbr-if="showBorder"></div>
+</section>
